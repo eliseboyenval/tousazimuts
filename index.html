@@ -28,7 +28,7 @@ a:hover { color: #1c1c1c; text-decoration: underline; }
     var map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/eliseboyenval/cizqo1m7l00k02rpd1dok8iww', // replace this with your style
-  center: [34.10, 81.90], // starting position
+  center: [81.90, 34.10], // starting position
     zoom: 3 // starting zoom
     });
 
@@ -43,9 +43,20 @@ map.on('click', function(e) {
   }
 
   var feature = features[0];
+  
+  var popupOffsets = {
+ 'top': [0, 40],
+ 'top-left': [-20,40],
+ 'top-right': [20,40],
+ 'bottom': [0, -40],
+ 'bottom-left': [0,-40],
+ 'bottom-right': [0,-40],
+ 'left': [-20,0],
+ 'right': [20,0]
+ };
     // Populate the popup and set its coordinates
     // based on the feature found.
-  var popup = new mapboxgl.Popup({ offset: [0, -45],anchor: 'top', })
+  var popup = new mapboxgl.Popup({ offset: popupOffsets })
     .setLngLat(feature.geometry.coordinates)
     .setHTML('<h3>' + feature.properties.title + '</h3><p>' + feature.properties.description + '</p>')
     .setLngLat(feature.geometry.coordinates)
