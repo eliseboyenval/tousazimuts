@@ -35,7 +35,7 @@ a:hover { color: #1c1c1c; text-decoration: underline; }
 
 map.on('click', function(e) {
   var features = map.queryRenderedFeatures(e.point, {
-    layers: ['Hotel','Camping'] // replace this with the name of the layer
+    layers: ['Hotel','Camping','Hebergement','Articles'] // replace this with the name of the layer
   });
 
   if (!features.length) {
@@ -66,7 +66,7 @@ map.on('click', function(e) {
       // Use the same approach as above to indicate that the symbols are clickable
 // by changing the cursor style to 'pointer'.
 map.on('mousemove', function (e) {
-    var features = map.queryRenderedFeatures(e.point, { layers: ['Hotel','Camping'] });
+    var features = map.queryRenderedFeatures(e.point, { layers: ['Hotel','Camping','Hebergement','Articles'] });
     map.getCanvas().style.cursor = (features.length) ? 'pointer' : '';
 });
 
